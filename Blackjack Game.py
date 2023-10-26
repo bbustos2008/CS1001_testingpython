@@ -6,6 +6,7 @@ deck = [2,3,4,5,6,7,8,9,10,2,3,4,5,6,7,8,9,10,2,3,4,5,6,7,8,9,10,2,3,4,5,6,7,8,9
 playerhand = []
 dealerhand = []
 
+####test
 #class card:
     #def __init__(self,r,s):
         #self.rank = r
@@ -33,6 +34,7 @@ dealerhand = []
         #c = card(r,s)
         #deck.dealcards(c)
         
+
 
 
 #deal cards
