@@ -72,7 +72,7 @@ for _ in range(2):
     dealcards(playerhand)
 HitorStay = 1
 while playerIn and dealerIn:
-    print(f"dealer has {dealerhand}")
+    print(f"dealer has {dealerhand[0]}, X")
     print(f"you have {playerhand} for a total of {total(playerhand)}")
     if playerIn and HitorStay == 1:
         HitorStay = input(" Choose 1: hit or 2: stay")
