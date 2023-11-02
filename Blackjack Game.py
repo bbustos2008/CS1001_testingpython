@@ -7,10 +7,18 @@ playerhand = []
 dealerhand = []
 
 ####test
-#class card:
-    #def __init__(self,r,s):
-        #self.rank = r
-        #self.suit = s
+class card:
+    def __init__(self,r,s):
+        self.rank = r
+        self.suit = s
+
+    def getvalue(self):
+        if self.rank in ['J','Q','K']:
+            return 10
+        elif self.rank == 'A':
+            return 11
+        else:
+            return int(self.rank)
 
 #class deck:
     #def __init__(self):
