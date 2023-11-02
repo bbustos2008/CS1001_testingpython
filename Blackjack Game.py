@@ -70,11 +70,12 @@ def dealerchoice():
 for _ in range(2):
     dealcards(dealerhand)
     dealcards(playerhand)
-HitorStay = 1
+
+HitorStay = '1'
 while playerIn and dealerIn:
     print(f"dealer has {dealerhand[0]}, X")
     print(f"you have {playerhand} for a total of {total(playerhand)}")
-    if playerIn and HitorStay == 1:
+    if playerIn and HitorStay == '1':
         HitorStay = input(" Choose 1: hit or 2: stay")
     if total(dealerhand) > 16:
         dealerIn = False
@@ -82,12 +83,14 @@ while playerIn and dealerIn:
         dealcards(dealerhand)
     if HitorStay == "2":
         playerIn = True
+    
     else: 
        dealcards(playerhand)
     if total(playerhand) >= 21:
         break
     elif total(dealerhand) >= 21:
         break
+     
 
 print(f"dealer has {dealerhand} for a total of {total(dealerhand)}")
 print(f"you have {playerhand} for a total of {total(playerhand)}")
