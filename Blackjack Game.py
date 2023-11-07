@@ -1,4 +1,6 @@
 import random
+playerwins = 0
+dealerwins = 0
 playerIn = True
 dealerIn = True
 #deck of cards / player dealer hand
@@ -7,18 +9,18 @@ playerhand = []
 dealerhand = []
 
 ####test
-class card:
-    def __init__(self,r,s):
-        self.rank = r
-        self.suit = s
+#class card:
+    #def __init__(self,r,s):
+        #self.rank = r
+        #self.suit = s
 
-    def getvalue(self):
-        if self.rank in ['J','Q','K']:
-            return 10
-        elif self.rank == 'A':
-            return 11
-        else:
-            return int(self.rank)
+    #def getvalue(self):
+        #if self.rank in ['J','Q','K']:
+            #return 10
+        #elif self.rank == 'A':
+            #return 11
+        #else:
+            #return int(self.rank)
 
 #class deck:
     #def __init__(self):
@@ -117,3 +119,18 @@ elif total(dealerhand) > total(playerhand):
     print("dealer wins")
 elif total(playerhand) > total(dealerhand):
     print("you win")
+
+def keepscore():
+    if print == "Blackjack!" or "Dealer busts. You win!" or "you win":
+        playerwins = playerwins + 1
+        return
+
+    if print == "Dealer has blackjack. You lose!" or "Tie goes to the dealer. You lose!" or "You Bust!" or "dealer wins":
+        dealerwins = dealerwins + 1
+        return
+
+print(f"Score: Player - {playerwins} Dealer - {dealerwins}")
+
+f = open("gamescore.txt","w")
+f.write(f"Score: Player - {playerwins} Dealer - {dealerwins}")
+f.close()
