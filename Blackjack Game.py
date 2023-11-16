@@ -4,22 +4,32 @@ dealerwins = 0
 playerIn = True
 dealerIn = True
 #deck of cards / player dealer hand
-deck = [2,3,4,5,6,7,8,9,10,2,3,4,5,6,7,8,9,10,2,3,4,5,6,7,8,9,10,2,3,4,5,6,7,8,9,10,'J', 'Q', 'K', 'A','J', 'Q', 'K', 'A','J', 'Q', 'K', 'A', 'J', 'Q', 'K', 'A']
+# deck = [2,3,4,5,6,7,8,9,10,2,3,4,5,6,7,8,9,10,2,3,4,5,6,7,8,9,10,2,3,4,5,6,7,8,9,10,'J', 'Q', 'K', 'A','J', 'Q', 'K', 'A','J', 'Q', 'K', 'A', 'J', 'Q', 'K', 'A']
+ranks = ["2","3","4","5","6","7","8","9","10","J","Q","K","A"]
+suits = ["diamonds", "spades", "clubs", "hearts"]
 playerhand = []
 dealerhand = []
 
-#class card:
-    #def __init__(self,r,s):
-        #self.rank = r
-        #self.suit = s
+class card:
+    def __init__(self,r,s):
+        self.rank = r
+        self.suit = s
 
-    #def getvalue(self):
-        #if self.rank in ['J','Q','K']:
-            #return 10
-        #elif self.rank == 'A':
-            #return 11
-        #else:
-            #return int(self.rank)
+    def __str__(self):
+        return f'{self.rank} of {self.suit}'
+
+    def getvalue(self):
+        if self.rank in ['J','Q','K']:
+            return 10
+        elif self.rank == 'A':
+            return 11
+        else:
+            return int(self.rank)
+
+deck = []
+for r in ranks:
+    for s in suits:
+        deck.append(card(r,s))
 
 #class deck:
     #def __init__(self):
@@ -57,16 +67,19 @@ def total(turn):
     total = 0
     face = ['J','Q','K']
     for card in turn:
-        if card in range(1,11):
-            total += card
-        elif card in face:
-            total += 10
-        else:
-            if total > 11:
-                total += 1
-            else:
-                total += 11    
-    return total               
+        total = total + card.getvalue()
+    return total     
+
+def showhand(hand):
+    ret = ''
+    first = True
+    for c in hand:
+        if not first:
+            ret = ret + ','
+        ret = ret + str(c)
+        if first:
+            first = False
+    return ret
 
 #check for winner
 def dealerchoice():
@@ -90,7 +103,7 @@ for _ in range(2):
 HitorStay = '1'
 while playerIn and dealerIn:
     print(f"dealer has {dealerhand[0]}, X")
-    print(f"you have {playerhand} for a total of {total(playerhand)}")
+    print(f"you have {showhand(playerhand)} for a total of {total(playerhand)}")
     if playerIn and HitorStay == '1':
         HitorStay = input(" Choose 1: hit or 2: stay")
     if total(dealerhand) > 16:
@@ -108,8 +121,8 @@ while playerIn and dealerIn:
         break
      
 
-print(f"dealer has {dealerhand} for a total of {total(dealerhand)}")
-print(f"you have {playerhand} for a total of {total(playerhand)}")
+print(f"dealer has {showhand(dealerhand)} for a total of {total(dealerhand)}")
+print(f"you have {showhand(playerhand)} for a total of {total(playerhand)}")
 
 if total(playerhand) == 21 and len(playerhand) == 2:
     print("Blackjack!")
