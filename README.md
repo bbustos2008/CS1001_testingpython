@@ -1,3 +1,6 @@
 # CS1001_testingpython
 
-thank you for your interest
+## remeber, must be a .MD file for this to work
+### what does this do? 
+*italics* **bold**
+[Whitworth Website](https://pirateport.whitworth.edu/)
