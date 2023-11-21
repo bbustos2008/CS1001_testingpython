@@ -3,8 +3,8 @@ playerwins = 0
 dealerwins = 0
 playerIn = True
 dealerIn = True
+
 #deck of cards / player dealer hand
-# deck = [2,3,4,5,6,7,8,9,10,2,3,4,5,6,7,8,9,10,2,3,4,5,6,7,8,9,10,2,3,4,5,6,7,8,9,10,'J', 'Q', 'K', 'A','J', 'Q', 'K', 'A','J', 'Q', 'K', 'A', 'J', 'Q', 'K', 'A']
 ranks = ["2","3","4","5","6","7","8","9","10","J","Q","K","A"]
 suits = ["diamonds", "spades", "clubs", "hearts"]
 playerhand = []
@@ -30,31 +30,6 @@ deck = []
 for r in ranks:
     for s in suits:
         deck.append(card(r,s))
-
-#class deck:
-    #def __init__(self):
-        #self.cards = []
-
-    #def shuffle(self):
-        #print("do nothing")
-
-    #def draw(self):
-        #print("do nothing")
-
-    #def addcard(self,card):
-       #self.cards.append(card)
-
-#ranks = ["1","2","3","4","5","6","7","8","9","10","J","Q","K","A"]
-#suits = ["diamonds", "spades", "clubs", "hearts"]
-
-#deck = deck()
-#for r in ranks:
-    #for s in suits:
-        #c = card(r,s)
-        #deck.dealcards(c)
-        
-
-
 
 #deal cards
 def dealcards(turn):
